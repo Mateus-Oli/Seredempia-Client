@@ -1,0 +1,25 @@
+.help{
+  box-shadow: 2px 2px 2px darkgreen;
+  height:auto;
+  margin:2%;
+  margin-bottom: 8%;
+  border-radius: 10px;
+  align-self: middle;
+  width:95%;
+  background-color: #141414;
+  color:white;
+}
+
+.help:hover{
+  background-color: #003300;
+}
+
+.img-help{
+  box-shadow: 2px 2px 2px darkgreen;
+  position:relative;
+  margin: 1%;
+  height:100px;
+  width:100px;
+  border-radius:100px;
+  background-color:white;
+}

@@ -1,0 +1,47 @@
+<ui-navbar title="Seredempia">
+  <li><a href="#/Menu"><img class="logo" src="images/logo.png"/> Menu</a></li>
+  <li class="active"><a href="#/Estudante"><img class="icone" src="images/student.png"/> Estudante</a></li>
+  <li><a href="#/Escola"><img class="icone" src="images/school.png"/> Escola</a></li>
+  <li><a href="#/Transporte"><img class="icone" src="images/transport.png"/> Transporte</a></li>
+</ui-navbar>
+
+<ui-helper title="Estudante" side="right" image="images/student.png">
+Para enviar a solicitação de liberação para sua instituição de ensino insira seu CPF na caixa de texto abaixo e pressione o botão Solicitar.
+</ui-helper>
+
+<form name="estudanteForm">
+<div class="col-lg-6" style="width:100%">
+  <div class="input-group input-group-lg" style="width:300px; margin:0 auto 0 auto">
+    <input type="text" class="form-control"placeholder="Insira seu CPF" ng-model="cpf" ui-cpf ng-required="true" ng-minlength="14"/>
+    <span class="input-group-btn">
+      <button class="btn btn-default" type="button" ng-disabled="estudanteForm.$invalid" ng-click="solicitar(cpf)">Solicitar</button>
+    </span>
+  </div>
+</div>
+</form>
+<br/><br/><br/><br/><br/>
+
+<div class="alert alert-success alert-dismissible" role="alert" ng-if="status=='N'">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <strong>Solicitação Enviada!</strong> Espera a confirmação de sua instuição de ensino,  {{student.name}}.
+</div>
+
+<div class="alert alert-warning alert-dismissible" role="alert" ng-if="status=='W'">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <strong>Esperando confirmação!</strong> Sua solicitação ainda não foi confirmada,  {{student.name}}.
+</div>
+
+<div class="alert alert-info alert-dismissible" role="alert" ng-if="status=='C'">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <strong>Solicitação Confirmada!</strong> Dirija-se ao terminal para realizar a compra,  {{student.name}}.
+</div>
+
+<div class="alert alert-danger alert-dismissible" role="alert" ng-if="status=='B'">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <strong>Compra já efetuada!</strong> Aguarde o mês seguinte para fazer sua solicitação,  {{student.name}}.
+</div>
+
+<div class="alert alert-danger alert-dismissible" role="alert" ng-if="status=='I'">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <strong>Estudante não Existe!</strong> verifique se o CPF foi digitado corretamente.
+</div>

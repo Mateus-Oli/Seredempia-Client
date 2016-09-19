@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html ng-app="Seredempia">
+
+<head>
+	<meta charset="UTF-8">
+
+	<title>Seredempia</title>
+
+	<!--Favicon ICO-->
+	<link rel="icon" href="images/favicon.ico" type="image/x-icon"/>
+	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"/>
+
+	<!--Bootstrap CSS-->
+	<link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.css"/>
+
+	<!--Stylesheet LIB-->
+	<link rel="stylesheet" type="text/css" href="lib/helper/helper.css"/>
+
+	<!--Stylesheet CSS-->
+	<link rel="stylesheet" type="text/css" href="css/app.css"/>
+
+	<!--JQuery-->
+	<script src="lib/jquery/jquery.js"> </script>
+
+	<!--Bootstrap JS-->
+	<script src="lib/bootstrap/js/bootstrap.js"> </script>
+
+	<!--Angular-->
+	<script src="lib/angular/angular.js"> </script>
+	<script src="lib/angular/angular-locale_pt-br.js"> </script>
+	<script src="lib/angular/angular-route.js"> </script>
+
+	<!--My Libs-->
+	<script src="lib/helper/helper.js"></script>
+
+	<!--APP-->
+	<script src="js/app.js"> </script>
+
+	<!--Configurations-->
+	<script src="js/configs/routeConfig.js"></script>
+	<script src="js/configs/interceptorsConfig.js"></script>
+
+	<!--Values-->
+	<script src="js/values/configValue.js"></script>
+
+	<!--Interceptors-->
+	<script src="js/interceptors/timestampInterceptor.js"></script>
+
+	<!--Directives-->
+	<script src="js/directives/uiCpfDirective.js"></script>
+	<script src="js/directives/uiNavbarDirective.js"></script>
+
+	<!--Services-->
+	<script src="js/services/studentsAPIService.js"></script>
+
+	<!--Controllers-->
+	<script src="js/controllers/menuCtrl.js"></script>
+	<script src="js/controllers/studentCtrl.js"></script>
+	<script src="js/controllers/schoolCtrl.js"></script>
+	<script src="js/controllers/transportCtrl.js"></script>
+
+	<!--Filters-->
+	<script src="js/filters/nameFilter.js"></script>
+
+</head>
+
+<body>
+	<h1 class="titulo">Seredempia</h1>
+
+	<div class="tela" ng-view>
+		<!--Views-->
+	</div>
+
+	<!--Footer-->
+	<div ng-include="'views/footer.html'"></div>
+
+</body>
+
+</html>
