@@ -8,7 +8,10 @@
   },
   "main": "index.html",
   "scripts": {
-    "start": "index.html"
+    "start": "http-server"
+  },
+  "dependencies": {
+    "http-server": "0.9.0"
   },
   "repository": {
     "type": "git",
