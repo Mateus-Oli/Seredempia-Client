@@ -1,1 +1,1 @@
-web: http-server
+web: index.html
