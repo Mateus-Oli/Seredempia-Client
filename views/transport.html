@@ -1,3 +1,4 @@
+<!--Menu: Enable navigation trough the site-->
 <ui-navbar title="Seredempia">
   <li><a href="#/Menu"><img class="logo" src="images/logo.png"/> Menu</a></li>
   <li><a href="#/Estudante"><img class="icone" src="images/student.png"/> Estudante</a></li>
@@ -5,5 +6,59 @@
   <li class="active"><a href="#/Transporte"><img class="icone" src="images/transport.png"/> Transporte</a></li>
 </ui-navbar>
 
-<ui-helper title="Transporte" side="right" image="images/transport.png">
+<!--Helper: Tell the user what to do in this view-->
+<ui-helper title="Escola" side="right" image="images/school.png">
+  Selecione o estudante que ira comprar a passagem, verifique suas informações e pressione o botão "Compra", assim o impedindo de fazer uma nova compra até o mês seguinte.
 </ui-helper>
+
+<div class="tabela">
+  <table class="table">
+    <!--Search: search a specific student-->
+    <td><input class="form-control" type="text" ng-model="pesquisa" placeholder="Pesquisar Estudante"/></td>
+  </table>
+<div style="overflow: auto; height:76%">
+  <!--Table: show all the confirmed Students-->
+    <table class="table">
+        <!--Content: Show Students of the School-->
+        <tr ng-repeat="student in students | filter:pesquisa" ng-class="{nSelecionado: !student.selected, selecionado: student.selected}" ng-click="select(student)">
+
+          <!--Checkbox: Select student-->
+          <td><input type="checkbox" ng-model="student.selected" disabled/></td>
+
+          <!--Data: Show Student information-->
+          <td>
+            <strong>CPF:</strong> {{student.cpf | cpf}}
+            <br/>
+            <strong>Nome:</strong> {{student.name | name:true}} &nbsp;
+            <strong>S:</strong> {{student.status.state}}
+          </td>
+
+        </tr>
+
+    </table>
+
+  </div>
+</div>
+<!--Information: Show the information of the selected Student-->
+<div class="info">
+
+  <h1>&nbsp; Informações do Estudante:</h1>
+  <hr/>
+
+  <div class="info">CPF: <input class="form-control" type="text" ng-model="student.cpf | cpf" placeholder="Ex: 999.999.999-99" disabled/></div>
+
+  <div class="info">Nome: <input class="form-control" type="text" ng-model="student.name | name" placeholder="Ex: João da Silva" disabled/></div>
+
+  <div class="info">Situação: <input class="form-control" type="text" ng-model="student.status.state | status" placeholder="Ex: Esperando" disabled/></div>
+
+  <br/>
+
+  <div class="info">CNPJ Escola: <input class="form-control" type="text" ng-model="student.school.cnpj | cnpj" placeholder="Ex: 99.999.999/9999-99" disabled/></div>
+
+  <div class="info">Nome Escola: <input class="form-control" type="text" ng-model="student.school.name | name" placeholder="Ex: Escola" disabled/></div>
+
+  <div class="info">Mês Solicitação: <input class="form-control" type="text" ng-model="student.status.date | month" placeholder="Ex: Outubro" disabled/></div>
+
+</div>
+
+<button class="btn btn-primary confirmar" ng-click="confirmStudents()" ng-disabled="!student.name">Confirmar</button>

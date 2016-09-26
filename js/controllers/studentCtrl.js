@@ -5,13 +5,13 @@ angular.module("Seredempia").controller("studentCtrl", function($scope, students
   $scope.student = {};
   $scope.status = "";
   $scope.solicitar = function(cpf){
-    studentsAPI.getStudent(cpf).success(function(student){
+    studentsAPI.getStudentCpf(cpf.replace(/[^0-9]+/g,"")).success(function(student){
       $scope.cpf = "";
       if(student!=null){
         $scope.status = student.status.state;
         if(student.status.state=="N"){
           student.status.state="W";
-          studentsAPI.putStudent(student);
+          studentsAPI.putStudent([student]);
         }
         /*
         Status:

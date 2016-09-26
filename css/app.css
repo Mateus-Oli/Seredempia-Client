@@ -1,9 +1,71 @@
+/*School and Transport*/
+.nSelecionado:hover{
+  background-color: lightyellow;
+}
+
+.selecionado{
+  background-color: yellow;
+}
+
+.tabela{
+  float: left;
+  width: 400px;
+  height:55%;
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px #141414;
+}
+
+.info{
+  float: left;
+  margin: 20px;
+  display: inline-block;
+}
+
+.confirmar{
+  position: absolute;
+  bottom: 1%;
+  right: 1%
+
+}
+
+/*Student*/
+
+/*Footer*/
+.direitos{
+  position:absolute;
+  font-size: 15px;
+  bottom:0%;
+  width:100%;
+  color: white;
+  margin: 0px;
+  text-align: center;
+  text-shadow:1px 1px 1px darkgreen;
+}
+
+/*Navbar*/
+.icone{
+  height: 20px;
+  width: 20px;
+}
+
+.logo{
+  height: 20px;
+  width: 30px;
+}
+
+.navbar{
+  border-top-left-radius:10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+/*All site*/
 .titulo{
   text-align: center;
   font-weight: normal;
   color: white;
   text-shadow: 3px 3px 3px darkgreen;
-
 }
 
 .tela{
@@ -17,34 +79,6 @@
   border-radius: 10px;
   box-shadow: 2px 2px 3px darkgreen;
   overflow:auto;
-}
-
-.direitos{
-  position:absolute;
-  font-size: 15px;
-  bottom:0%;
-  width:100%;
-  color: white;
-  margin: 0px;
-  text-align: center;
-  text-shadow:1px 1px 1px darkgreen;
-}
-
-.icone{
-  height: 20px;
-  width: 20px;
-}
-
-.navbar{
-  border-top-left-radius:10px;
-  border-top-right-radius: 10px;
-  border-bottom-left-radius: 0px;
-  border-bottom-right-radius: 0px;
-}
-
-.logo{
-  height: 20px;
-  width: 30px;
 }
 
 body{

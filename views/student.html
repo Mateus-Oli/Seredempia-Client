@@ -1,3 +1,4 @@
+<!--Menu: enable navigation trough the site-->
 <ui-navbar title="Seredempia">
   <li><a href="#/Menu"><img class="logo" src="images/logo.png"/> Menu</a></li>
   <li class="active"><a href="#/Estudante"><img class="icone" src="images/student.png"/> Estudante</a></li>
@@ -5,10 +6,12 @@
   <li><a href="#/Transporte"><img class="icone" src="images/transport.png"/> Transporte</a></li>
 </ui-navbar>
 
+<!--Helper: Tell the user what to do in this view-->
 <ui-helper title="Estudante" side="right" image="images/student.png">
 Para enviar a solicitação de liberação para sua instituição de ensino insira seu CPF na caixa de texto abaixo e pressione o botão Solicitar.
 </ui-helper>
 
+<!--Form: Textbox and button send request to API changing the status of the student-->
 <form name="estudanteForm">
 <div class="col-lg-6" style="width:100%">
   <div class="input-group input-group-lg" style="width:300px; margin:0 auto 0 auto">
@@ -19,8 +22,10 @@ Para enviar a solicitação de liberação para sua instituição de ensino insi
   </div>
 </div>
 </form>
+
 <br/><br/><br/><br/><br/>
 
+<!--Alerts: Tell the user the outcome of the request-->
 <div class="alert alert-success alert-dismissible" role="alert" ng-if="status=='N'">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
   <strong>Solicitação Enviada!</strong> Espera a confirmação de sua instuição de ensino,  {{student.name}}.
