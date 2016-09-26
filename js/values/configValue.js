@@ -3,8 +3,8 @@
 
 angular.module("Seredempia").value("config",{
   //Connect to server online
-  //baseUrl:"https://seredempiaserver.herokuapp.com/api",
+  baseUrl:"https://seredempiaserver.herokuapp.com/api",
 
   //Connect to server offline
-  baseUrl:"http://localhost:8000/api",
+  //baseUrl:"http://localhost:8000/api",
 });
