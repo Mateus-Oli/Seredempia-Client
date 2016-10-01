@@ -3,9 +3,9 @@
 
 angular.module("Seredempia").directive("uiNavbar", function(){
   return{
-    
+
     //Path to the view
-    templateUrl:"views/navbar.html",
+    templateUrl:"views/partials/navbar.html",
 
     /*
       E = Element
@@ -21,8 +21,9 @@ angular.module("Seredempia").directive("uiNavbar", function(){
         (=) --> Variable Value
       */
       title: "@",
+      User: "@"
     },
-
+    
     //Enable Code inside directive
     transclude:true,
   };

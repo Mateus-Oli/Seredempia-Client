@@ -1,0 +1,58 @@
+<!--Menu: Enable navigation trough the site-->
+<ui-navbar title="Seredempia">
+  <li><a href="#/Menu"><img class="logo" src="images/logo.png"/> Menu</a></li>
+  <li><a href="#/Estudante"><img class="icone" src="images/student.png"/> Estudante</a></li>
+  <li ng-class="{active: origin=='Escola'}"><a href="#/Escola"><img class="icone" src="images/school.png"/> Escola</a></li>
+  <li ng-class="{active: origin=='Transporte'}"><a href="#/Transporte"><img class="icone" src="images/transport.png"/> Transporte</a></li>
+</ui-navbar>
+
+<ui-helper title={{origin}} side="right" image={{image}}>
+  Para fazer o Log-In insira o CNPJ da instituição no campo "Usuário", a senha da mesma no campo "Senha" e clique no botão "Log-In".
+  Caso tenha esquecido sua senha clique em "Esqueceu Senha", insira o usuário e clique em "Enviar Email" para receber um email sobre
+  a alteração de sua senha.
+</ui-helper>
+
+<!--Jumbotron: Contains the inputs for the Log-In-->
+<div class="jumbotron logIn" ng-keypress="$event.which==13 && logIn(user, pass)">
+
+      <table class="logIn">
+        <tr>
+          <!--User Input-->
+          <td style="text-align: right"><strong>Usuário:</strong></td>
+          <td><input type="text" class="form-control logField" placeholder="Inserir CNPJ" ng-model="user" ui-cnpj id="user" ui-focus/></td>
+        </tr>
+
+        <tr>
+          <!--Password Input-->
+          <td style="text-align: right"><strong>Senha:</strong></td>
+          <td><input type="password" class="form-control logField" placeholder="Inserir Senha" ng-model="pass"/></td>
+        </tr>
+
+        <!--Forgot Password-->
+        <tr ng-if="forgot">
+          <!--Email Input-->
+          <td style="text-align: right"><strong>Email:</strong></td>
+          <td><input type="text" class="form-control logField" placeholder='Apenas clique em "Enviar Email"' ng-model="email" disabled/></td>
+        </tr>
+      </table>
+
+  <!--Button: Using password and user log in-->
+  <button style="margin-right: 30px; float:right" class="btn btn-primary" ng-click="logIn(user, pass)">Log-In</button>
+  <button style="margin-right: 30px; float:right" class="btn btn-warning" ng-click="forgot = !forgot">Esqueceu a senha</button>
+  <button style="margin-right: 30px; float:right" class="btn btn-warning" ng-click="send()" ng-if="forgot">Enviar Email</button>
+
+  <br/><br/>
+
+  <!--Warning: Wrong Username (CNPJ)-->
+  <div class="alert alert-danger alert-dismissible" role="alert" ng-if="error=='User'">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <strong>Usuário não Encontrado!</strong> verifique o CNPJ digitado.
+  </div>
+
+  <!--Warning: Wrong Password-->
+  <div class="alert alert-danger alert-dismissible" role="alert" ng-if="error=='Pass'">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <strong>Senha Incorreta!</strong> verifique a senha digitada.
+  </div>
+
+</div>

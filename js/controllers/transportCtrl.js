@@ -1,7 +1,7 @@
 //Transport Controller
 //Controll the transport view
 
-angular.module("Seredempia").controller("transportCtrl", function($scope, transportsAPI ,studentsAPI){
+angular.module("Seredempia").controller("transportCtrl", function($scope, $cookies, $location, transportsAPI, studentsAPI){
 
   //Function to load Students with status
   var loadStudents = function(status){
@@ -34,26 +34,24 @@ angular.module("Seredempia").controller("transportCtrl", function($scope, transp
     });
   };
 
-  //Function to LOG-IN
-  var logIn = function(cnpj,password){
+  //Information related to the LOG-IN
+  //cnpj     = "77777777777777";
+  //password = "Transporte";
 
-    //Get the Transport that is Logging in
-    transportsAPI.getTransportLogIn(cnpj, password).success(function(transport){
+  //Check to see if there is a Transport Logged in, if not then go to logIn
+  if(!$cookies.getObject("Transporte")) $location.path("/logIn").search({origin:"Transporte"});
+  else{
 
-      //Transport
-      $scope.transport = transport;
+    $scope.transport = $cookies.getObject("Transporte");
 
-      //Load Confirmed Students
-      loadStudents("C");
-    });
+    loadStudents("C");
+
+  }
+
+  $scope.logOut = function(){
+    $cookies.remove("Transporte");
   };
 
-  //Information related to the LOG-IN (Temporary)
-  cnpj     = "77777777777777";
-  password = "Transporte";
-
-  //Logging in
-  logIn(cnpj, password);
 
   //Select a Student
   $scope.select = function(student){

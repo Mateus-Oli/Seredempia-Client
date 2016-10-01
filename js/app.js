@@ -1,4 +1,4 @@
 //Creates the module
-//Inject libraries
+//Inject dependencies
 
-angular.module("Seredempia",["ngRoute", "helper"]);
+angular.module("Seredempia",["ngRoute", "ngCookies", "helper"]);

@@ -1,98 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
-  xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-  
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+
   <url>
     <loc>http://seredempia.herokuapp.com/#/Menu</loc>
 
-	<image:image>
+	   <image:image>
        <image:loc>http://seredempia.herokuapp.com/images/logo.png</image:loc>
        <image:caption>Logo</image:caption>
-    </image:image>
+     </image:image>
 
-	<image:image>
-       <image:loc>http://seredempia.herokuapp.com/images/student.png</image:loc>
-       <image:caption>Estudante</image:caption>
-    </image:image>
-
-	<image:image>
-       <image:loc>http://seredempia.herokuapp.com/images/School.png</image:loc>
-       <image:caption>Escola</image:caption>
-    </image:image>
-
-    <image:image>
-       <image:loc>http://seredempia.herokuapp.com/images/Transport.png</image:loc>
-       <image:caption>Transport</image:caption>
-    </image:image>
   </url>
+
   <url>
     <loc>http://seredempia.herokuapp.com/#/Estudante</loc>
 
-	<image:image>
-       <image:loc>http://seredempia.herokuapp.com/images/logo.png</image:loc>
-       <image:caption>Logo</image:caption>
-    </image:image>
-
-	<image:image>
+	   <image:image>
        <image:loc>http://seredempia.herokuapp.com/images/student.png</image:loc>
        <image:caption>Estudante</image:caption>
     </image:image>
 
-	<image:image>
-       <image:loc>http://seredempia.herokuapp.com/images/School.png</image:loc>
-       <image:caption>Escola</image:caption>
-    </image:image>
-
-    <image:image>
-       <image:loc>http://seredempia.herokuapp.com/images/Transport.png</image:loc>
-       <image:caption>Transport</image:caption>
-    </image:image>
   </url>
   <url>
     <loc>http://seredempia.herokuapp.com/#/Escola</loc>
 
 	<image:image>
-       <image:loc>http://seredempia.herokuapp.com/images/logo.png</image:loc>
-       <image:caption>Logo</image:caption>
-    </image:image>
-
-	<image:image>
-       <image:loc>http://seredempia.herokuapp.com/images/student.png</image:loc>
-       <image:caption>Estudante</image:caption>
-    </image:image>
-
-	<image:image>
        <image:loc>http://seredempia.herokuapp.com/images/School.png</image:loc>
        <image:caption>Escola</image:caption>
     </image:image>
 
-    <image:image>
-       <image:loc>http://seredempia.herokuapp.com/images/Transport.png</image:loc>
-       <image:caption>Transport</image:caption>
-    </image:image>
   </url>
+
   <url>
     <loc>http://seredempia.herokuapp.com/#/Transporte</loc>
 
-	<image:image>
-       <image:loc>http://seredempia.herokuapp.com/images/logo.png</image:loc>
-       <image:caption>Logo</image:caption>
-    </image:image>
-
-	<image:image>
-       <image:loc>http://seredempia.herokuapp.com/images/student.png</image:loc>
-       <image:caption>Estudante</image:caption>
-    </image:image>
-
-	<image:image>
-       <image:loc>http://seredempia.herokuapp.com/images/School.png</image:loc>
-       <image:caption>Escola</image:caption>
-    </image:image>
-
-    <image:image>
+  <image:image>
        <image:loc>http://seredempia.herokuapp.com/images/Transport.png</image:loc>
        <image:caption>Transport</image:caption>
     </image:image>
+
   </url>
+
 </urlset>

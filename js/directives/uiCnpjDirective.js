@@ -6,9 +6,23 @@ angular.module("Seredempia").directive("uiCnpj",function(){
     //Requires the ngModel Directive
     require: "ngModel",
 
+    /*
+      E = Element
+      A = Attribute
+      C = Class
+      M = Comment
+    */
+    restrict:"A",
+
+    //Functions to be executed by this directive
     link: function(scope, element, attrs, ctrl){
+
       //Function to format the cnpj
       var _formatCnpj = function(cnpj){
+
+        //Does nothing if CNPJ is Empty
+        if(!cnpj) return cnpj;
+
         cnpj = cnpj.replace(/[^0-9]+/g,"");
 
         //Insert  the ".", "/" and "-" in cnpj
@@ -43,9 +57,9 @@ angular.module("Seredempia").directive("uiCnpj",function(){
       //What will be passed to scope
       ctrl.$parsers.push(function(cnpj){
         //when cnpj length is 14 digits
-        if(cpf.length == 18){
+        if(cnpj.length == 18){
           //create a cnpj with only numbers
-          return cpf.replace(/[^0-9]+/g,"");;
+          return cnpj.replace(/[^0-9]+/g,"");;
         }
       });
     },

@@ -37,6 +37,19 @@
 
 /*Student*/
 
+/*logIn*/
+.logIn{
+  width: 75%;
+  margin: auto auto 25px;
+  border-radius:10px;
+}
+
+.logField{
+    display:inline;
+    width:75%;
+    margin: 10px 10px 10px 10px;
+}
+
 /*Footer*/
 .direitos{
   position:absolute;

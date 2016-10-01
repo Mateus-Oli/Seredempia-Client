@@ -6,9 +6,23 @@ angular.module("Seredempia").directive("uiCpf",function(){
     //Requires the ngModel Directive
     require: "ngModel",
 
+    /*
+      E = Element
+      A = Attribute
+      C = Class
+      M = Comment
+    */
+    restrict:"A",
+
+    //Functions to be executed by this directive
     link: function(scope, element, attrs, ctrl){
+
       //Function to format the CPF
       var _formatCpf = function(cpf){
+
+        //Does nothing if CPF is Empty
+        if(!cpf) return cpf;
+
         cpf = cpf.replace(/[^0-9]+/g,"");
 
         //Insert the "." and "-"

@@ -1,7 +1,7 @@
 //School Controller
 //Controll the school view
 
-angular.module("Seredempia").controller("schoolCtrl", function($scope, schoolsAPI ,studentsAPI, $filter){
+angular.module("Seredempia").controller("schoolCtrl", function($scope, $cookies, $location, schoolsAPI, studentsAPI, $filter){
 
   //Function to load Students from School
   var loadStudents = function(school){
@@ -40,29 +40,22 @@ angular.module("Seredempia").controller("schoolCtrl", function($scope, schoolsAP
     });
   }
 
-  //Function to LOG-IN
-  var logIn = function(cnpj, password){
+  //Information related to the LOG-IN
+  //cnpj     = "99999999999999";
+  //password = "Escola";
 
-    //School
-    $scope.school = {};
+  //Check to see if there is a School Logged in, if not then go to logIn
+  if(!$cookies.getObject("Escola")) $location.path("/logIn").search({origin:"Escola"});
+  else{
 
-    //Get the School that is Logging in
-    schoolsAPI.getSchoolLogIn(cnpj, password).success(function(school){
+    $scope.school = $cookies.getObject("Escola");
 
-      //Logged in school
-      $scope.school = school;
-
-      //Load Students of School
-      loadStudents(school);
-    });
+    loadStudents($scope.school);
   };
 
-  //Information related to the LOG-IN (Temporary)
-  cnpj     = "99999999999999";
-  password = "Escola";
-
-  //Logging in
-  logIn(cnpj, password);
+  $scope.logOut = function(){
+    $cookies.remove("Escola");
+  };
 
   //Select a Student
   $scope.select = function(student){
