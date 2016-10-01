@@ -3,6 +3,7 @@
 
 angular.module("Seredempia").directive("uiNavbar", function(){
   return{
+    
     //Path to the view
     templateUrl:"views/navbar.html",
 

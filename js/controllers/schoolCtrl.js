@@ -3,89 +3,91 @@
 
 angular.module("Seredempia").controller("schoolCtrl", function($scope, schoolsAPI ,studentsAPI, $filter){
 
+  //Function to load Students from School
+  var loadStudents = function(school){
+
+    //Get Students from Backend
+    studentsAPI.getStudentSchool(school).success(function(students){
+
+      //Loaded Students
+      $scope.students = students;
+
+      //Last Selected student
+      $scope.student = {};
+
+      //Unchecking Selected all
+      $scope.selectedAll = false;
+
+      //Search Box
+      $scope.pesquisa = "";
+
+      //Number of Selected Students
+      $scope.selected = 0;
+    });
+  };
+
+  //Function to Change Students
+  var changeStudents = function(students){
+
+    //Send changes to Backend
+    studentsAPI.putStudent(students).success(function(){
+
+      //Empity Students
+      $scope.students = [];
+
+      //Reload Students
+      loadStudents($scope.school)
+    });
+  }
+
+  //Function to LOG-IN
+  var logIn = function(cnpj, password){
+
+    //School
+    $scope.school = {};
+
+    //Get the School that is Logging in
+    schoolsAPI.getSchoolLogIn(cnpj, password).success(function(school){
+
+      //Logged in school
+      $scope.school = school;
+
+      //Load Students of School
+      loadStudents(school);
+    });
+  };
+
   //Information related to the LOG-IN (Temporary)
   cnpj     = "99999999999999";
   password = "Escola";
 
-  //School Logged In
-  $scope.school = {};
+  //Logging in
+  logIn(cnpj, password);
 
-  //Last Student Selected
-  $scope.student = {};
-
-  $scope.selected = 0;
   //Select a Student
   $scope.select = function(student){
-      //Select the student
-      student.selected = !student.selected;
-      $scope.selectedAll = true;
+    //Select the student
+    student.selected = !student.selected;
 
+    if(student.selected==true){
+      //Add  to number of selected students
+      $scope.selected++;
 
-      if(student.selected==true){
-        //Add  tonumber of selected students
-        $scope.selected++;
+      //Put selected Student in scope
+      $scope.student = student;
 
-        $scope.student.status = {};
-        $scope.student.school = {};
+    }else{
 
-        //Put selected Student in scope
-        $scope.student.cpf = $filter("cpf")(student.cpf);
-        $scope.student.name = $filter("name")(student.name);
-        $scope.student.status.state = $filter("status")(student.status.state);
-        $scope.student.status.date = $filter("month")(student.status.date);
-        $scope.student.school.cnpj = $filter("cnpj")(student.school.cnpj);
-        $scope.student.school.name = $filter("name")(student.school.name);
+      //Subtract to number of selected students
+      $scope.selected--;
 
-      }else{
-        //Remove deselected Student from scope
-        $scope.student = {};
+      //Remove deselected Student from scope
+      $scope.student = {};
+    }
 
-        //Subtract to number of selected students
-        $scope.selected--;
-      }
-
-      //If all selected check selectedAll
-      $scope.students.forEach(function(student){
-        if(!student.selected){
-          $scope.selectedAll = false;
-          return;
-        }
-      });
-  };
-
-  //Change Status to Confirmed ("C")
-  $scope.confirmStudents = function(){
-    students =[];
-    //Get all Selected Students
-    $scope.students.forEach(function(student){
-      if(student.selected){
-        delete student.selected;
-        student.status.state = "C";
-        students.push(student);
-
-      }
-    });
-
-    //Reload Students
-    $scope.students = [];
-    students.forEach(function(student){
-      console.log(student);
-    })
-    studentsAPI.putStudent(students).success(function(){
-      studentsAPI.getStudentSchool($scope.school).success(function(students){
-        $scope.students = students;
-
-        //Removing Confirmed Student from scope
-        $scope.student = {};
-      });
-    });
-    //Unchecking Selected all
-    $scope.selectedAll = false;
-    //Cleaning search box
-    $scope.pesquisa = "";
-
-    //Subtracting number of selected students to 0
-    $scope.selected = 0;
+    //Check or uncheck Selected All
+    if($scope.selected == $scope.students.length) $scope.selectedAll = true;
+    else $scope.selectedAll = false;
   };
 
   //Select All Students
@@ -94,27 +96,42 @@ angular.module("Seredempia").controller("schoolCtrl", function($scope, schoolsAP
     //Remove individual student from scope
     $scope.student = {};
 
+    //Select all students
     $scope.students.forEach(function(student){
       student.selected = $scope.selectedAll;
-
-      //Add or Subtract depending of value of Selected All
-      if($scope.selectedAll) $scope.selected++;
-      if(!$scope.selectedAll) $scope.selected++;
     });
+
+    //IF deselected, number of selected students is 0
+    $scope.selected = 0;
+
+    //Add Selected if Selected All is true
+    if($scope.selectedAll ) $scope.selected = $scope.students.length;
   };
 
-  //GET the School that is Logging in
-  schoolsAPI.getSchoolLogIn(cnpj, password).success(function(school){
+  //Change Status to Confirmed ("C")
+  $scope.confirmStudents = function(){
 
-    $scope.school = school;
+    //Array of selected Students
+    students =[];
 
-    //GET the Students of the School
-    studentsAPI.getStudentSchool(school).success(function(students){
-      $scope.students = students;
+    //Get all Selected Students
+    $scope.students.forEach(function(student){
+      //Prepare Student to be changed
+      if(student.selected){
 
-      //Subtracting number of selected students to 0
-      $scope.selected = 0;
+        //remove the selected variable
+        delete student.selected;
+
+        //change the state of status
+        student.status.state = "C";
+
+        //puts student in array of students to be sent
+        students.push(student);
+
+      }
     });
-  });
 
+    //Send changes to Backend
+    changeStudents(students);
+  };
 });

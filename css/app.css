@@ -1,10 +1,17 @@
 /*School and Transport*/
 .nSelecionado:hover{
   background-color: lightyellow;
+  cursor: pointer;
+}
+
+.nSelecionado:focus{
+  background-color: lightyellow;
+  cursor: pointer;
 }
 
 .selecionado{
   background-color: yellow;
+  cursor: pointer;
 }
 
 .tabela{

@@ -13,17 +13,22 @@
 
 <div class="tabela">
   <table class="table">
+
     <!--Checkbox: select to select all students-->
     <td><input type="checkbox" ng-model="selectedAll" ng-click="selectAll()"/></td>
+
     <!--Search: search a specific student-->
     <td><input class="form-control" type="text" ng-model="pesquisa" placeholder="Pesquisar Estudante"/></td>
+
   </table>
-<div style="overflow: auto; height:76%">
+
+<div style="overflow: auto; height:75%">
+
 <!--Table: show all the students of the School-->
-<table class="table">
+<table class="table" ng-keypress="$event.which==13 && student.name && confirmStudents()">
 
     <!--Content: Show Students of the School-->
-    <tr ng-repeat="student in students | filter:pesquisa" ng-class="{nSelecionado: !student.selected, selecionado: student.selected}" ng-click="select(student)">
+    <tr tabindex=0 ng-repeat="student in students | filter:pesquisa" ng-class="{nSelecionado: !student.selected, selecionado: student.selected}" ng-click="select(student)" ng-keypress="$event.which==32 && select(student)">
 
       <!--Checkbox: Select student-->
       <td><input type="checkbox" ng-model="student.selected" disabled/></td>
@@ -39,28 +44,30 @@
     </tr>
 
 </table>
+
 </div>
+
 </div>
 
 <!--Information: Show the information of the last selected Student-->
 <div class="info">
 
-  <h1>&nbsp; Informações do Estudante:</h1>
+  <h1>Informações do Estudante:</h1>
   <hr/>
 
-  <div class="info">CPF: <input class="form-control" type="text" ng-model="student.cpf" placeholder="Ex: 999.999.999-99" disabled/></div>
+  <div class="info">CPF: <input class="form-control" type="text" value="{{student.cpf | cpf}}" placeholder="Ex: 999.999.999-99" disabled/></div>
 
-  <div class="info">Nome: <input class="form-control" type="text" ng-model="student.name" placeholder="Ex: João da Silva" disabled/></div>
+  <div class="info">Nome: <input class="form-control" type="text" value="{{student.name | name}}" placeholder="Ex: João da Silva" disabled/></div>
 
-  <div class="info">Situação: <input class="form-control" type="text" ng-model="student.status.state" placeholder="Ex: Esperando" disabled/></div>
+  <div class="info">Situação: <input class="form-control" type="text" value="{{student.status.state | status}}" placeholder="Ex: Esperando" disabled/></div>
 
-  <br/>
+<br/>
 
-  <div class="info">CNPJ Escola: <input class="form-control" type="text" ng-model="student.school.cnpj" placeholder="Ex: 99.999.999/9999-99" disabled/></div>
+  <div class="info">CNPJ Escola: <input class="form-control" type="text" value="{{student.school.cnpj | cnpj}}" placeholder="Ex: 99.999.999/9999-99" disabled/></div>
 
-  <div class="info">Nome Escola: <input class="form-control" type="text" ng-model="student.school.name" placeholder="Ex: Escola" disabled/></div>
+  <div class="info">Nome Escola: <input class="form-control" type="text" value="{{student.school.name | name}}" placeholder="Ex: Escola" disabled/></div>
 
-  <div class="info">Mês Solicitação: <input class="form-control" type="text" ng-model="student.status.date" placeholder="Ex: Outubro" disabled/></div>
+  <div class="info">Mês Solicitação: <input class="form-control" type="text" value="{{student.status.date | month}}" placeholder="Ex: Outubro" disabled/></div>
 
 </div>
 

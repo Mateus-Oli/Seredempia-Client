@@ -11,6 +11,7 @@ angular.module("Seredempia").directive("uiCpf",function(){
       var _formatCpf = function(cpf){
         cpf = cpf.replace(/[^0-9]+/g,"");
 
+        //Insert the "." and "-"
         if(cpf.length>3){
           cpf = cpf.substring(0,3) + "." + cpf.substring(3);
         };
@@ -20,10 +21,13 @@ angular.module("Seredempia").directive("uiCpf",function(){
         if(cpf.length>11){
           cpf = cpf.substring(0,11) + "-" + cpf.substring(11);
         };
+
+        //limit the length of cpf
         if(cpf.length>14){
           cpf = cpf.substring(0,14);
         };
 
+        //return formated cpf
         return cpf;
       };
 
@@ -31,6 +35,15 @@ angular.module("Seredempia").directive("uiCpf",function(){
       element.bind("keyup", function(){
         ctrl.$setViewValue(_formatCpf(ctrl.$viewValue));
         ctrl.$render();
+      });
+
+      //What will be passed to scope
+      ctrl.$parsers.push(function(cpf){
+        //when cpf length is 14 digits
+        if(cpf.length == 14){
+          //create a cpf with only numbers
+          return cpf.replace(/[^0-9]+/g,"");;
+        }
       });
     },
   };

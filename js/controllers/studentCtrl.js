@@ -5,7 +5,7 @@ angular.module("Seredempia").controller("studentCtrl", function($scope, students
   $scope.student = {};
   $scope.status = "";
   $scope.solicitar = function(cpf){
-    studentsAPI.getStudentCpf(cpf.replace(/[^0-9]+/g,"")).success(function(student){
+    studentsAPI.getStudentCpf(cpf).success(function(student){
       $scope.cpf = "";
       if(student!=null){
         $scope.status = student.status.state;

@@ -1,7 +1,7 @@
 {
   "name": "Seredempia",
   "version": "1.0.0",
-  "description": "A WEB Client application",
+  "description": "Graduation Project - Mateus Oliveira Carvalho: Web Client Application",
   "engines": {
     "node": "4.4.5",
     "npm": "2.15.5"
@@ -18,6 +18,8 @@
     "url": "https://git.heroku.com/seredempia.git"
   },
   "keywords": [
-    "Seredempia"
+    "Seredempia",
+    "Passe",
+    "Estudante"
   ]
 }

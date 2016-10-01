@@ -15,7 +15,7 @@ Para enviar a solicitação de liberação para sua instituição de ensino insi
 <form name="estudanteForm">
 <div class="col-lg-6" style="width:100%">
   <div class="input-group input-group-lg" style="width:300px; margin:0 auto 0 auto">
-    <input type="text" class="form-control"placeholder="Insira seu CPF" ng-model="cpf" ui-cpf ng-required="true" ng-minlength="14"/>
+    <input type="text" class="form-control"placeholder="Insira seu CPF" ng-model="cpf" ui-cpf ng-required="true" ng-minlength="14" ng-keypress="$event.which==13 && estudanteForm.$valid && solicitar(cpf)"/>
     <span class="input-group-btn">
       <button class="btn btn-default" type="button" ng-disabled="estudanteForm.$invalid" ng-click="solicitar(cpf)">Solicitar</button>
     </span>
