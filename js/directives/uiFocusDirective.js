@@ -18,6 +18,7 @@ angular.module("Seredempia").directive("uiFocus",function(){
       scope.$watch("focus", function(value){
         //Gives focus to the element with specific ID
         if(attrs.id == value) element.focus();
+        value="";
       });
 
     },

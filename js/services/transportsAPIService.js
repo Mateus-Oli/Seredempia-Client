@@ -5,7 +5,7 @@ angular.module("Seredempia").factory("transportsAPI", function($http, config){
 
   //Get School LOG-IN
   var _getTransportLogIn = function(cn, pa){
-    return $http.get(config.baseUrl + "/transportsCnPa/" + cn + "/" + pa);
+    return $http.get(config.baseUrl + "/transportsCnPa/" + (cn || "err") + "/" + (pa || "err"));
   };
 
   //Return functions to be used

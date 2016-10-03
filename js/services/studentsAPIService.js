@@ -10,7 +10,7 @@ angular.module("Seredempia").factory("studentsAPI", function($http, config){
 
   //Get Students with specific school
   var _getStudentSchool = function(school){
-    return $http.get(config.baseUrl + "/studentsSc/" + school.name);
+    return $http.get(config.baseUrl + "/studentsSc/" + school._id);
   };
 
   //Get Students with specific status
