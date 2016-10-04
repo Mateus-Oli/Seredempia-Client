@@ -9,7 +9,7 @@
 <!--Helper: Tell the user what to do in this view-->
 <ui-helper title="Escola" side="right" image="images/transport.png">
   Selecione o estudante que ira comprar a passagem, verifique suas informações e pressione o botão "Compra", assim o impedindo de fazer
-  uma nova compra até o mês seguinte. Para fazer o log ou de {{transport.name}}, <a ng-click="logOut()" href="#">Clique aqui!</a>
+  uma nova compra até o mês seguinte. Para fazer o log ou de {{transport.name}}, <a name="logout" ng-click="logOut()" href="#">Clique aqui!</a>
 </ui-helper>
 
 <div class="tabela">
@@ -28,7 +28,7 @@
           <td><input type="checkbox" ng-model="student.selected" disabled/></td>
 
           <!--Data: Show Student information-->
-          <td>
+          <td name="{{student.cpf}}">
             <strong>CPF:</strong> {{student.cpf | cpf}}
             <br/>
             <strong>Nome:</strong> {{student.name | name:true}} &nbsp;
@@ -64,4 +64,4 @@
 
 </div>
 
-<button class="btn btn-primary confirmar" ng-click="blockStudent()" ng-disabled="!student.name">Confirmar</button>
+<button name="confirmar" class="btn btn-primary confirmar" ng-click="blockStudent()" ng-disabled="!student.name">Confirmar</button>

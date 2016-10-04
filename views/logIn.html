@@ -19,13 +19,13 @@
         <tr>
           <!--User Input-->
           <td style="text-align: right"><strong>Usuário:</strong></td>
-          <td><input type="text" class="form-control logField" placeholder="Inserir CNPJ" ng-model="user" ui-cnpj id="user" ui-focus/></td>
+          <td><input type="text" class="form-control logField" name="user" placeholder="Inserir CNPJ" ng-model="user" ui-cnpj ui-focus/></td>
         </tr>
 
         <tr>
           <!--Password Input-->
           <td style="text-align: right"><strong>Senha:</strong></td>
-          <td><input type="password" class="form-control logField" placeholder="Inserir Senha" ng-model="pass"/></td>
+          <td><input type="password" name="password" class="form-control logField" placeholder="Inserir Senha" ng-model="pass"/></td>
         </tr>
 
         <!--Forgot Password-->
@@ -37,9 +37,9 @@
       </table>
 
   <!--Button: Using password and user log in-->
-  <button style="margin-right: 30px; float:right" class="btn btn-primary" ng-click="logIn(user, pass)">Log-In</button>
-  <button style="margin-right: 30px; float:right" class="btn btn-warning" ng-click="forgot = !forgot">Esqueceu a senha</button>
-  <button style="margin-right: 30px; float:right" class="btn btn-warning" ng-click="send()" ng-if="forgot">Enviar Email</button>
+  <button name="login"    style="margin-right: 30px; float:right" class="btn btn-primary" ng-click="logIn(user, pass)">Log-In</button>
+  <button name="esqueceu" style="margin-right: 30px; float:right" class="btn btn-warning" ng-click="forgot = !forgot">Esqueceu a senha</button>
+  <button name="email"    style="margin-right: 30px; float:right" class="btn btn-warning" ng-click="send()" ng-if="forgot">Enviar Email</button>
 
   <br/><br/>
 

@@ -1,7 +1,10 @@
 //Transport Controller
 //Controll the transport view
 
-angular.module("Seredempia").controller("transportCtrl", function($scope, $cookies, $location, transportsAPI, studentsAPI){
+angular.module("Seredempia").controller("transportCtrl", function($scope, $rootScope, $cookies, $location, transportsAPI, studentsAPI){
+
+  //Set Title of Page
+  $rootScope.title = "Seredempia - Transporte";
 
   //Function to load Students with status
   var loadStudents = function(status){

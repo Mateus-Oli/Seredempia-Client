@@ -1,7 +1,10 @@
 //School Controller
 //Controll the school view
 
-angular.module("Seredempia").controller("schoolCtrl", function($scope, $cookies, $location, schoolsAPI, studentsAPI, $filter){
+angular.module("Seredempia").controller("schoolCtrl", function($scope, $rootScope, $cookies, $location, schoolsAPI, studentsAPI, $filter){
+
+  //Set Title of Page
+  $rootScope.title = "Seredempia - Escola";
 
   //Function to load Students from School
   var loadStudents = function(school){

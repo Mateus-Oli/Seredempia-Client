@@ -1,7 +1,10 @@
 //Student Controller
 //Controll the student view
 
-angular.module("Seredempia").controller("studentCtrl", function($scope, studentsAPI){
+angular.module("Seredempia").controller("studentCtrl", function($scope, $rootScope,studentsAPI){
+
+  //Set Title of Page
+  $rootScope.title = "Seredempia - Estudante";
 
   //Give Focus to elemet with specific ID
   $scope.focus = "cpf";

@@ -1,4 +1,10 @@
-angular.module("Seredempia").controller("logInCtrl", function($scope, $cookies , $location, transportsAPI ,schoolsAPI){
+//Log-In Controller
+//Controll the logIn view
+
+angular.module("Seredempia").controller("logInCtrl", function($scope, $rootScope, $cookies , $location, transportsAPI ,schoolsAPI){
+
+  //Set Title of Page
+  $rootScope.title = "Seredempia - Log-In";
 
   //Function to Log-In (Transport or School)
   $scope.logIn = function(user,pass){

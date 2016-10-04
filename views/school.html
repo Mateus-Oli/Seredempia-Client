@@ -9,7 +9,7 @@
 <!--Helper: Tell the user what to do in this view-->
 <ui-helper title="Escola" side="right" image="images/school.png">
   Selecione os estudantes que deseja confirmar a solicitação de passes, verifique suas informações e pressione o botão "Confirmar" para
-  liberar aos estudantes selecionados a compra de passes de estudants. Para fazer o log out de {{school.name}}, <a ng-click="logOut()" href="#">Clique aqui!</a>
+  liberar aos estudantes selecionados a compra de passes de estudants. Para fazer o log out de {{school.name}}, <a name="logout" ng-click="logOut()" href="#">Clique aqui!</a>
 </ui-helper>
 
 <div class="tabela">
@@ -35,7 +35,7 @@
       <td><input type="checkbox" ng-model="student.selected" disabled/></td>
 
       <!--Data: Show Student information-->
-      <td>
+      <td name="{{student.cpf}}">
         <strong>CPF:</strong> {{student.cpf | cpf}}
         <br/>
         <strong>Nome:</strong> {{student.name | name:true}} &nbsp;
@@ -72,4 +72,4 @@
 
 </div>
 
-<button class="btn btn-primary confirmar" ng-click="confirmStudents()" ng-disabled="!selected">Confirmar</button>
+<button name="confirmar" class="btn btn-primary confirmar" ng-click="confirmStudents()" ng-disabled="!selected">Confirmar</button>

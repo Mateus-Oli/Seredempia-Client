@@ -17,14 +17,14 @@ Para enviar a solicitação de liberação para sua instituição de ensino insi
   <div class="input-group input-group-lg" style="width:300px; margin:0 auto 0 auto">
 
     <!--Textbox: Insert CPF of desired Student-->
-    <input type="text" placeholder="Insira seu CPF" id="cpf" class="form-control"
+    <input type="text" placeholder="Insira seu CPF" name="cpf" class="form-control"
            ng-model="cpf" ng-required="true" ng-minlength="14" ng-keypress="$event.which==13 && estudanteForm.$valid && solicitar(cpf)"
            ui-cpf ui-focus/>
 
     <span class="input-group-btn">
 
       <!--Button:Change Status of Student-->
-      <button class="btn btn-default" type="button" ng-disabled="estudanteForm.$invalid" ng-click="solicitar(cpf)">Solicitar</button>
+      <button class="btn btn-default" type="button" name="solicitar" ng-disabled="estudanteForm.$invalid" ng-click="solicitar(cpf)">Solicitar</button>
 
     </span>
   </div>
@@ -34,27 +34,27 @@ Para enviar a solicitação de liberação para sua instituição de ensino insi
 <br/><br/><br/><br/><br/>
 
 <!--Alerts: Tell the user the outcome of the request-->
-<div class="alert alert-success alert-dismissible" role="alert" ng-if="status=='N'">
+<div name="aviso" class="alert alert-success alert-dismissible" role="alert" ng-if="status=='N'">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
   <strong>Solicitação Enviada!</strong> Espera a confirmação de sua instuição de ensino,  {{student.name}}.
 </div>
 
-<div class="alert alert-warning alert-dismissible" role="alert" ng-if="status=='W'">
+<div name="aviso" class="alert alert-warning alert-dismissible" role="alert" ng-if="status=='W'">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
   <strong>Esperando confirmação!</strong> Sua solicitação ainda não foi confirmada,  {{student.name}}.
 </div>
 
-<div class="alert alert-info alert-dismissible" role="alert" ng-if="status=='C'">
+<div name="aviso" class="alert alert-info alert-dismissible" role="alert" ng-if="status=='C'">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
   <strong>Solicitação Confirmada!</strong> Dirija-se ao terminal para realizar a compra,  {{student.name}}.
 </div>
 
-<div class="alert alert-danger alert-dismissible" role="alert" ng-if="status=='B'">
+<div name="aviso" class="alert alert-danger alert-dismissible" role="alert" ng-if="status=='B'">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
   <strong>Compra já efetuada!</strong> Aguarde o mês seguinte para fazer sua solicitação,  {{student.name}}.
 </div>
 
-<div class="alert alert-danger alert-dismissible" role="alert" ng-if="status=='I'">
+<div name="aviso" class="alert alert-danger alert-dismissible" role="alert" ng-if="status=='I'">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
   <strong>Estudante não Existe!</strong> verifique se o CPF foi digitado corretamente.
 </div>
