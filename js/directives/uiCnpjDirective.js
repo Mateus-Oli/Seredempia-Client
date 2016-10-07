@@ -56,11 +56,9 @@ angular.module("Seredempia").directive("uiCnpj",function(){
 
       //What will be passed to scope
       ctrl.$parsers.push(function(cnpj){
-        //when cnpj length is 14 digits
-        if(cnpj.length == 18){
-          //create a cnpj with only numbers
-          return cnpj.replace(/[^0-9]+/g,"");;
-        }
+
+        //create a cnpj with only numbers
+        return cnpj.replace(/[^0-9]+/g,"");;
       });
     },
   };

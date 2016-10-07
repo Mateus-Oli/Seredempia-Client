@@ -53,11 +53,9 @@ angular.module("Seredempia").directive("uiCpf",function(){
 
       //What will be passed to scope
       ctrl.$parsers.push(function(cpf){
-        //when cpf length is 14 digits
-        if(cpf.length == 14){
-          //create a cpf with only numbers
-          return cpf.replace(/[^0-9]+/g,"");;
-        }
+
+        //create a cpf with only numbers
+        return cpf.replace(/[^0-9]+/g,"");
       });
     },
   };

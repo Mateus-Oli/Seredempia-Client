@@ -3,10 +3,7 @@
 
 angular.module("Seredempia").controller("transportCtrl", function($scope, $rootScope, $cookies, $location, transportsAPI, studentsAPI){
 
-  //Set Title of Page
-  $rootScope.title = "Seredempia - Transporte";
-
-  //Function to load Students with status
+  //load Students with status
   var loadStudents = function(status){
 
     //Get students from Backend
@@ -23,7 +20,7 @@ angular.module("Seredempia").controller("transportCtrl", function($scope, $rootS
     });
   };
 
-  //Function to Change Student
+  //Change Student
   var changeStudent = function(student){
 
     //Send changes to Backedn
@@ -37,24 +34,22 @@ angular.module("Seredempia").controller("transportCtrl", function($scope, $rootS
     });
   };
 
-  //Information related to the LOG-IN
-  //cnpj     = "77777777777777";
-  //password = "Transporte";
-
   //Check to see if there is a Transport Logged in, if not then go to logIn
-  if(!$cookies.getObject("Transporte")) $location.path("/logIn").search({origin:"Transporte"});
-  else{
+  var logIn = function(){
+    if(!$cookies.getObject("Transporte")) $location.path("/logIn").search({origin:"Transporte"});
+    else{
 
-    $scope.transport = $cookies.getObject("Transporte");
+      $scope.transport = $cookies.getObject("Transporte");
 
-    loadStudents("C");
+      loadStudents("C");
 
-  }
+    }
+  };
 
+  //Log out
   $scope.logOut = function(){
     $cookies.remove("Transporte");
   };
-
 
   //Select a Student
   $scope.select = function(student){
@@ -86,4 +81,12 @@ angular.module("Seredempia").controller("transportCtrl", function($scope, $rootS
     //Send changes to Backend
     changeStudent($scope.student);
   };
+
+  logIn();
+
+  //Set Title of Page
+  $rootScope.title = "Seredempia - Transporte";
+
+  //Give Focus to Search Box
+  $scope.focus="pesquisa";
 });

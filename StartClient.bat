@@ -7,7 +7,7 @@ REM (Shows Only Outputs)
 REM (Creates a HTTP Server to Run the Client)
   http-server -o
 
-  REM (If Http-Server Does Not Exist Start Client With File Protocol)
+REM (If Http-Server Does Not Exist Start Client With File Protocol)
   IF %ERRORLEVEL%==9009 (
     CLS
 

@@ -3,28 +3,7 @@
 
 angular.module("Seredempia").controller("studentCtrl", function($scope, $rootScope,studentsAPI){
 
-  //Set Title of Page
-  $rootScope.title = "Seredempia - Estudante";
-
-  //Give Focus to elemet with specific ID
-  $scope.focus = "cpf";
-
-  //Student on scope
-  $scope.student = {};
-
-  /*
-  Status:
-  N - Not Sent
-  W - Waiting
-  C - Confirmed
-  B - Blocked
-  I - Inexistent
-  */
-
-  //Status of Student on scope
-  $scope.status = "";
-
-  //Function that chnages the status of Student ("N" --> "C")
+  //Chnages the status of Student ("N" --> "C")
   $scope.solicitar = function(cpf){
 
     //Get Student from Backend
@@ -52,4 +31,26 @@ angular.module("Seredempia").controller("studentCtrl", function($scope, $rootSco
       else $scope.status = "I";
     });
   };
+
+  //Set Title of Page
+  $rootScope.title = "Seredempia - Estudante";
+
+  //Give Focus to elemet with specific Name
+  $scope.focus = "cpf";
+
+  //Student on scope
+  $scope.student = {};
+
+  /*
+  Status:
+  N - Not Sent
+  W - Waiting
+  C - Confirmed
+  B - Blocked
+  I - Inexistent
+  */
+
+  //Status of Student on scope
+  $scope.status = "";
+
 });

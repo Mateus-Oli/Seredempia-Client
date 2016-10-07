@@ -3,9 +3,6 @@
 
 angular.module("Seredempia").controller("logInCtrl", function($scope, $rootScope, $cookies , $location, transportsAPI ,schoolsAPI){
 
-  //Set Title of Page
-  $rootScope.title = "Seredempia - Log-In";
-
   //Function to Log-In (Transport or School)
   $scope.logIn = function(user,pass){
     //Get the School that is Logging in
@@ -67,6 +64,9 @@ angular.module("Seredempia").controller("logInCtrl", function($scope, $rootScope
     + "\tSenha  : 'Escola'");
   }
 
+  //Set Title of Page
+  $rootScope.title = "Seredempia - Log-In";
+
   //Give focus to element with specific ID
   $scope.focus = "user";
 
@@ -79,5 +79,4 @@ angular.module("Seredempia").controller("logInCtrl", function($scope, $rootScope
   //Images of Helper
   if(origin=="Transporte") $scope.image = "images/transport.png";
   if(origin=="Escola") $scope.image = "images/school.png";
-
 });

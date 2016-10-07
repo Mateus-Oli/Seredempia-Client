@@ -3,9 +3,6 @@
 
 angular.module("Seredempia").controller("schoolCtrl", function($scope, $rootScope, $cookies, $location, schoolsAPI, studentsAPI, $filter){
 
-  //Set Title of Page
-  $rootScope.title = "Seredempia - Escola";
-
   //Function to load Students from School
   var loadStudents = function(school){
 
@@ -41,21 +38,20 @@ angular.module("Seredempia").controller("schoolCtrl", function($scope, $rootScop
       //Reload Students
       loadStudents($scope.school)
     });
-  }
-
-  //Information related to the LOG-IN
-  //cnpj     = "99999999999999";
-  //password = "Escola";
-
-  //Check to see if there is a School Logged in, if not then go to logIn
-  if(!$cookies.getObject("Escola")) $location.path("/logIn").search({origin:"Escola"});
-  else{
-
-    $scope.school = $cookies.getObject("Escola");
-
-    loadStudents($scope.school);
   };
 
+  //Check to see if there is a School Logged in, if not then go to logIn
+  var logIn = function(){
+    if(!$cookies.getObject("Escola")) $location.path("/logIn").search({origin:"Escola"});
+    else{
+
+      $scope.school = $cookies.getObject("Escola");
+
+      loadStudents($scope.school);
+    };
+  }
+
+  //log Out
   $scope.logOut = function(){
     $cookies.remove("Escola");
   };
@@ -130,4 +126,13 @@ angular.module("Seredempia").controller("schoolCtrl", function($scope, $rootScop
     //Send changes to Backend
     changeStudents(students);
   };
+
+  logIn();
+
+  //Set Title of Page
+  $rootScope.title = "Seredempia - Escola";
+
+  //Give Focus to Search Box
+  $scope.focus="pesquisa";
+
 });

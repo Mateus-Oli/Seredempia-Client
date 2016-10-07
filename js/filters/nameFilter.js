@@ -17,17 +17,17 @@ angular.module("Seredempia").filter("name", function(){
 
     //First Letter of word is Upper Case
     var output = nomes.map(function(nome){
+
+      //Except de, da, do, das, dos
       if (/\sd[a,e,o,as,os]\s/g.test(nome.toLowerCase())) return nome.toLowerCase();
-      return nome.charAt(0).toUpperCase() + nome.substring(1).toLowerCase();
+
+      else return nome.charAt(0).toUpperCase() + nome.substring(1).toLowerCase();
     });
 
     //Show only fist name
-    if(first){
-      return output[0];
-    //Show all names
-    }else{
-      return output.join(" ");
-    }
+    if(first) return output[0];
 
+    //Show all names
+    else return output.join(" ");
   };
 });
