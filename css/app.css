@@ -1,37 +1,37 @@
 /*School and Transport*/
 .nSelecionado:hover{
   background-color: lightyellow;
-  cursor: pointer;
+  cursor:           pointer;
 }
 
 .nSelecionado:focus{
   background-color: lightyellow;
-  cursor: pointer;
+  cursor:           pointer;
 }
 
 .selecionado{
   background-color: yellow;
-  cursor: pointer;
+  cursor:           pointer;
 }
 
 .tabela{
-  float: left;
-  width: 400px;
-  height:55%;
+  float:         left;
+  width:         400px;
+  height:        55%;
   border-radius: 5px;
-  box-shadow: 1px 1px 1px #141414;
+  box-shadow:    1px 1px 1px #141414;
 }
 
 .info{
-  float: left;
-  margin: 20px;
+  float:   left;
+  margin:  20px;
   display: inline-block;
 }
 
 .confirmar{
   position: absolute;
-  bottom: 1%;
-  right: 1%
+  bottom:   1%;
+  right:    1%
 
 }
 
@@ -39,66 +39,66 @@
 
 /*logIn*/
 .logIn{
-  width: 75%;
-  margin: auto auto 25px;
-  border-radius:10px;
+  width:         75%;
+  margin:        auto auto 25px;
+  border-radius: 10px;
 }
 
 .logField{
-    display:inline;
-    width:75%;
-    margin: 10px 10px 10px 10px;
+    display: inline;
+    width:   75%;
+    margin:  10px 10px 10px 10px;
 }
 
 /*Footer*/
 .direitos{
-  position:absolute;
-  font-size: 15px;
-  bottom:0%;
-  width:100%;
-  color: white;
-  margin: 0px;
-  text-align: center;
-  text-shadow:1px 1px 1px darkgreen;
+  position:    absolute;
+  font-size:   15px;
+  bottom:      0%;
+  width:       100%;
+  color:       white;
+  margin:      0px;
+  text-align:  center;
+  text-shadow: 1px 1px 1px darkgreen;
 }
 
 /*Navbar*/
 .icone{
   height: 20px;
-  width: 20px;
+  width:  20px;
 }
 
 .logo{
   height: 20px;
-  width: 30px;
+  width:  30px;
 }
 
 .navbar{
-  border-top-left-radius:10px;
-  border-top-right-radius: 10px;
-  border-bottom-left-radius: 0px;
+  border-top-left-radius:     10px;
+  border-top-right-radius:    10px;
+  border-bottom-left-radius:  0px;
   border-bottom-right-radius: 0px;
 }
 
 /*All site*/
 .titulo{
-  text-align: center;
+  text-align:  center;
   font-weight: normal;
-  color: white;
+  color:       white;
   text-shadow: 3px 3px 3px darkgreen;
 }
 
 .tela{
-  position: absolute;
-  width: 95%;
-  height: 80%;
-  top: 10%;
-  left:2.5%;
-  right:2.5%;
+  position:         absolute;
+  width:            95%;
+  height:           80%;
+  top:              10%;
+  left:             2.5%;
+  right:            2.5%;
   background-color: white;
-  border-radius: 10px;
-  box-shadow: 2px 2px 3px darkgreen;
-  overflow:auto;
+  border-radius:    10px;
+  box-shadow:       2px 2px 3px darkgreen;
+  overflow:         auto;
 }
 
 body{

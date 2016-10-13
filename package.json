@@ -15,11 +15,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://git.heroku.com/seredempia.git"
+    "url": "https://github.com/Mateus-Oli/Seredempia-Client.git"
   },
   "keywords": [
     "Seredempia",
-    "Passe",
-    "Estudante"
-  ]
+    "Client"
+  ],
+  "license": "ISC"
 }

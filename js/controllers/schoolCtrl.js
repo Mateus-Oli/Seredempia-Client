@@ -61,7 +61,7 @@ angular.module("Seredempia").controller("schoolCtrl", function($scope, $rootScop
     //Select the student
     student.selected = !student.selected;
 
-    if(student.selected==true){
+    if(student.selected == true){
       //Add  to number of selected students
       $scope.selected++;
 
@@ -104,7 +104,7 @@ angular.module("Seredempia").controller("schoolCtrl", function($scope, $rootScop
   $scope.confirmStudents = function(){
 
     //Array of selected Students
-    students =[];
+    students = [];
 
     //Get all Selected Students
     $scope.students.forEach(function(student){
@@ -133,6 +133,6 @@ angular.module("Seredempia").controller("schoolCtrl", function($scope, $rootScop
   $rootScope.title = "Seredempia - Escola";
 
   //Give Focus to Search Box
-  $scope.focus="pesquisa";
+  $scope.focus = "pesquisa";
 
 });

@@ -17,8 +17,8 @@ angular.module("Seredempia").controller("studentCtrl", function($scope, $rootSco
         $scope.status = student.status.state;
 
         //Change Status
-        if(student.status.state=="N"){
-          student.status.state="W";
+        if(student.status.state == "N"){
+          student.status.state = "W";
 
           //Send changes to Backend
           studentsAPI.putStudent([student]);

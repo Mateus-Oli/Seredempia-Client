@@ -57,7 +57,7 @@ angular.module("Seredempia").controller("transportCtrl", function($scope, $rootS
       //Select the student
       student.selected = !student.selected;
 
-      if(student.selected==true){
+      if(student.selected == true){
 
         //Deselect previous selected Student
         $scope.student.selected = false;
@@ -88,5 +88,5 @@ angular.module("Seredempia").controller("transportCtrl", function($scope, $rootS
   $rootScope.title = "Seredempia - Transporte";
 
   //Give Focus to Search Box
-  $scope.focus="pesquisa";
+  $scope.focus = "pesquisa";
 });

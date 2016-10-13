@@ -1,4 +1,6 @@
-<!--Menu: Enable navigation trough the site-->
+<!--Transport View: Block Student-->
+
+<!--NavBar: Enable navigation trough the site-->
 <ui-navbar title="Seredempia">
   <li><a href="#/Menu"><img class="logo" src="images/logo.png"/> Menu</a></li>
   <li><a href="#/Estudante"><img class="icone" src="images/student.png"/> Estudante</a></li>
@@ -8,7 +10,7 @@
 
 <!--Helper: Tell the user what to do in this view-->
 <ui-helper title="Escola" side="right" image="images/transport.png">
-  Selecione o estudante que ira comprar a passagem, verifique suas informações e pressione o botão "Compra", assim o impedindo de fazer
+  Selecione o estudante que ira comprar a passagem, verifique suas informações e pressione o botão "Comprar", assim o impedindo de fazer
   uma nova compra até o mês seguinte. Para fazer o log ou de {{transport.name}}, <a name="logout" ng-click="logOut()" href="#">Clique aqui!</a>
 </ui-helper>
 
@@ -64,4 +66,4 @@
 
 </div>
 
-<button name="confirmar" class="btn btn-primary confirmar" ng-click="blockStudent()" ng-disabled="!student.name">Confirmar</button>
+<button name="comprar" class="btn btn-primary confirmar" ng-click="blockStudent()" ng-disabled="!student.name">Comprar</button>

@@ -1,16 +1,16 @@
 //Log-In Controller
 //Controll the logIn view
 
-angular.module("Seredempia").controller("logInCtrl", function($scope, $rootScope, $cookies , $location, transportsAPI ,schoolsAPI){
+angular.module("Seredempia").controller("logInCtrl", function($scope, $rootScope, $cookies, $location, transportsAPI, schoolsAPI){
 
   //Function to Log-In (Transport or School)
-  $scope.logIn = function(user,pass){
+  $scope.logIn = function(user, pass){
     //Get the School that is Logging in
     if(origin == "Escola"){
-      schoolsAPI.getSchoolLogIn(user,pass).success(function(school){
+      schoolsAPI.getSchoolLogIn(user, pass).success(function(school){
 
         //Clean Password field
-        $scope.pass="";
+        $scope.pass = "";
 
         //Show Error
         if(school == "CNPJ não cadastrado") $scope.error = "User";
@@ -19,7 +19,7 @@ angular.module("Seredempia").controller("logInCtrl", function($scope, $rootScope
         else{
 
           //School in Cookies
-          $cookies.putObject(origin,school);
+          $cookies.putObject(origin, school);
 
           //Return to original View if Successful
           $location.path("/" + origin);
@@ -29,10 +29,10 @@ angular.module("Seredempia").controller("logInCtrl", function($scope, $rootScope
 
     //Get the Transport that is Logging in
     if(origin == "Transporte"){
-      transportsAPI.getTransportLogIn(user,pass).success(function(transport){
+      transportsAPI.getTransportLogIn(user, pass).success(function(transport){
 
         //Clean Password field
-        $scope.pass="";
+        $scope.pass = "";
 
         //Show Error
         if(transport == "CNPJ não cadastrado") $scope.error = "User";
@@ -41,7 +41,7 @@ angular.module("Seredempia").controller("logInCtrl", function($scope, $rootScope
         else{
 
           //Transport in Cookies
-          $cookies.putObject(origin,transport);
+          $cookies.putObject(origin, transport);
 
           //Return to original View if Successful
           $location.path("/" + origin);
@@ -77,6 +77,6 @@ angular.module("Seredempia").controller("logInCtrl", function($scope, $rootScope
   $scope.origin = origin;
 
   //Images of Helper
-  if(origin=="Transporte") $scope.image = "images/transport.png";
-  if(origin=="Escola") $scope.image = "images/school.png";
+  if (origin=="Transporte") $scope.image = "images/transport.png";
+  if (origin=="Escola")     $scope.image = "images/school.png";
 });

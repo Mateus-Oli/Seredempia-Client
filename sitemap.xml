@@ -1,8 +1,10 @@
+<!--Sitemap: Helps Google understand the site -->
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
 
+  <!--Menu: View and Image -->
   <url>
     <loc>http://seredempia.herokuapp.com/#/Menu</loc>
 
@@ -13,6 +15,14 @@
 
   </url>
 
+  <!--LogIn: View-->
+  <url>
+
+    <loc>http://seredempia.herokuapp.com/#/logIn</loc>
+
+  </url>
+
+  <!--Student: View and Image -->
   <url>
     <loc>http://seredempia.herokuapp.com/#/Estudante</loc>
 
@@ -22,6 +32,8 @@
     </image:image>
 
   </url>
+
+  <!--School: View and Image -->
   <url>
     <loc>http://seredempia.herokuapp.com/#/Escola</loc>
 
@@ -32,12 +44,13 @@
 
   </url>
 
+  <!--Transport: View and Image -->
   <url>
     <loc>http://seredempia.herokuapp.com/#/Transporte</loc>
 
   <image:image>
        <image:loc>http://seredempia.herokuapp.com/images/Transport.png</image:loc>
-       <image:caption>Transport</image:caption>
+       <image:caption>Transporte</image:caption>
     </image:image>
 
   </url>
